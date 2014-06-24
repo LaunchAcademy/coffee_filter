@@ -17,8 +17,6 @@ feature 'User can sign in or sign up' do
   end
 
 
-
-
   scenario "User doesn't provide a username or password when they sign up" do
     visit root_path
     click_link 'Sign Up'
@@ -29,10 +27,13 @@ feature 'User can sign in or sign up' do
     expect(page).to have_content('Email can\'t be blank')
   end
 
+
   scenario "User can sign in when they provide their input" do
 
-    user1 = User.create!(first_name: "bob", last_name: "love", email: "calebnthill@ygmail.com",
-                         password: "password", password_confirmation: "password")
+    user1 = FactoryGirl.create(:user)
+
+    # user1 = User.create!(first_name: "bob", last_name: "love", email: "calebnthill@ygmail.com",
+    #                      password: "password", password_confirmation: "password")
     visit root_path
     click_link "Sign In"
     fill_in "Email", with: user1.email
@@ -42,5 +43,19 @@ feature 'User can sign in or sign up' do
 
     expect(page).to have_content('Signed in successfully.')
   end
-  scenario "User is presented with an error with invalid input"
+
+
+  scenario "User is presented with an error with an invalid sign in attempt" do
+    user1 = FactoryGirl.create(:user)
+
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: "nobody@nothing.com"
+    fill_in "Password", with: "100110010101"
+
+    click_button "Sign in"
+
+    expect(page).to have_content("Invalid email or password.")
+
+  end
 end
