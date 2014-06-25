@@ -11,4 +11,12 @@ FactoryGirl.define do
     email "calebthethriller@gmail.com"
     password "12345678"
   end
+
+  FactoryGirl.define do
+    factory :review do
+      rating 1
+      body "MyText"
+    end
+  end
+
 end
