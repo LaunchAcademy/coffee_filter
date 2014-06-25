@@ -6,7 +6,7 @@ feature 'User can sign in or sign up' do
 
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First name', with: "Caleb"
+    fill_in 'First name', with: 'Caleb'
     fill_in 'Last name', with: 'Thill'
     fill_in 'Email', with: 'user@gmail.com'
     fill_in 'Password', with: 'password'

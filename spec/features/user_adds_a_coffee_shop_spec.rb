@@ -16,36 +16,46 @@ feature "User adds a coffee shop", %Q{
   scenario "User adds a coffee shop" do
 
     shop = FactoryGirl.create(:shop)
-    #user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
 
     visit root_path
-    # sign in!
-    click_link "Add a coffee shop"
-    fill_in "Coffee shop name:", with: shop.name
-    fill_in "Address", with: shop.address
-    fill_in "Description", with: shop.description
-    click_button "Add Shop"
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+
+    click_link 'Add a coffee shop'
+    fill_in 'Coffee shop name:', with: shop.name
+    fill_in 'Address', with: shop.address
+    fill_in 'Description', with: shop.description
+    click_button 'Add Shop'
 
     expect(page).to have_content('Shop added!')
     expect(page).to have_content(shop.name)
   end
 
-  scenario "User submits invalid input" do
+  scenario 'User submits invalid input' do
     shop = FactoryGirl.create(:shop)
-    #user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
 
     visit root_path
-    # sign in!
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
     click_link "Add a coffee shop"
     click_button "Add Shop"
 
     expect(page).to_not have_content('Shop added!')
     expect(page).to have_content('Please correct the errors and try again')
-
   end
 
 
-  # scenario "User must be logged in to add coffee shop"
+  scenario "User must be logged in to add coffee shop" do
+    visit root_path
+    click_link 'Add a coffee shop'
+    expect(page).to have_content('You need to sign in or sign up before continuing.')
+  end
 
 
 
