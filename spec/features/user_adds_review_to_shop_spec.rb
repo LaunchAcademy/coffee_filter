@@ -16,10 +16,10 @@ feature 'user visits shop page and leaves review' do
   end
 
   scenario 'user does not provide correct information' do
+    shop = FactoryGirl.create(:shop)
+    visit shop_path(shop)
 
-
-
-
+    click_button "Add Review"
 
     expect(page).to have_content('review did not go through!')
   end
