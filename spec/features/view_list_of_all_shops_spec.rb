@@ -8,8 +8,8 @@ feature 'user views a list of all shops' do
     third_shop = FactoryGirl.create(:shop, name: "The Filter")
 
     visit '/shops'
-    expect(page).to have_content "The Beanery"
-    expect(page).to have_content "Java City"
-    expect(page).to have_content "The Filter"
+    expect(page).to have_content first_shop.name
+    expect(page).to have_content second_shop.name
+    expect(page).to have_content third_shop.name
   end
 end
