@@ -4,8 +4,7 @@ FactoryGirl.define do
     address '123 Boston Street'
     description 'This place is rad!'
 
-    user
-    # association :user
+    association :user
   end
 
   factory :user do

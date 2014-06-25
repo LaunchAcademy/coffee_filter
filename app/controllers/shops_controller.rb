@@ -15,7 +15,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(user_params)
-
+    # binding.pry
     if @shop.save
       flash[:notice] = "Shop added!"
       redirect_to shop_path(@shop)
@@ -30,6 +30,6 @@ class ShopsController < ApplicationController
   private
 
   def user_params
-    params.require(:shop).permit(:name, :address, :description)
+    params.require(:shop).permit(:name, :address, :description).merge(user: current_user)
   end
 end

@@ -16,7 +16,7 @@ feature "User adds a coffee shop", %Q{
   scenario "User adds a coffee shop" do
 
     shop = FactoryGirl.build(:shop)
-    user = FactoryGirl.build(:user)
+    user = FactoryGirl.create(:user)
 
     visit root_path
     click_link 'Sign In'
