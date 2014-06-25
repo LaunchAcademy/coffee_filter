@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :shop do
-    name "The Beanery"
+    sequence(:name) { |n| "The Beanery#{n}" }
     address "123 Boston Street"
     description "This place is rad!"
   end
@@ -10,5 +10,10 @@ FactoryGirl.define do
     last_name "Thill"
     email "calebthethriller@gmail.com"
     password "12345678"
+  end
+
+  factory :review do
+    rating 1
+    body "MyText"
   end
 end

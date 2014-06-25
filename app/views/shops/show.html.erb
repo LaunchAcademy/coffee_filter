@@ -3,4 +3,37 @@
 <h2><%= @shop.address %></h2>
 <p><%= @shop.description %></p>
 
+<%= form_for [@shop, @review] do |f| %>
+  <div>
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div><%= f.submit "Add Review" %></div>
+<% end %>
+
+
+<% if @review.errors.any? %>
+  <p> There were errors in your submission </p>
+  <ul>
+    <% @review.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h2> Reviews </h2>
+
+<% @reviews.each do |review| %>
+  <ul>
+    <li>
+      <p>RATING: <%= review.rating %> - <%= review.body %></p>
+    </li>
+  </ul>
+<% end %>
+
+
 <%= link_to "Back", :back %>
+
