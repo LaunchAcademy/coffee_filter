@@ -2,6 +2,7 @@ class Shop < ActiveRecord::Base
   has_many :reviews
   has_many :pictures
   has_many :favorites
+  belongs_to :user
 
   validates :name, presence: true
   validates :address, presence: true
