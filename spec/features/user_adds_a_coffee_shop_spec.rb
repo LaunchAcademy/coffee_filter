@@ -50,13 +50,9 @@ feature "User adds a coffee shop", %Q{
     expect(page).to have_content('Please correct the errors and try again')
   end
 
-
   scenario "User must be logged in to add coffee shop" do
     visit root_path
     click_link 'Add a coffee shop'
     expect(page).to have_content('You need to sign in or sign up before continuing.')
   end
-
-
-
 end
