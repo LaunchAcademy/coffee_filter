@@ -29,7 +29,7 @@
 <% @reviews.each do |review| %>
   <ul>
     <li>
-      <p>RATING: <%= review.rating %> - <%= review.body %></p>
+      <p>RATING: <%= review.rating %> - <%= review.body %> - <%= link_to "Like", shop_path(@shop) %></p>
     </li>
   </ul>
 <% end %>

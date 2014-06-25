@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-feature 'user visits shop page and leaves review' do
+feature 'user visits shop page and add review' do
   scenario 'user successfully uploads a review' do
+    user = FactoryGirl.create(:user)
     shop = FactoryGirl.create(:shop)
-    review = FactoryGirl.create(:review, shop_id: shop)
+    review = FactoryGirl.build(:review, shop_id: shop, user_id: user)
     visit shop_path(shop)
 
     fill_in "Rating", with: review.rating
