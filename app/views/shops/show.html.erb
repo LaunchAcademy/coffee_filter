@@ -28,7 +28,10 @@
 <h2> Reviews </h2>
 
 <% @reviews.each do |review| %>
-  <p><%= review.rating %></p>
-  <p><%= review.body %></p>
+  <ul>
+    <li>
+      <p>RATING: <%= review.rating %> - <%= review.body %></p>
+    </li>
+  </ul>
 <% end %>
 
