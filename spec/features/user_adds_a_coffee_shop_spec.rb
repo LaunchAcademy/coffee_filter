@@ -19,20 +19,33 @@ feature "User adds a coffee shop", %Q{
     #user = FactoryGirl.create(:user)
 
     visit root_path
+    # sign in!
     click_link "Add a coffee shop"
-    fill_in "Name of coffee shop", with: shop.name
+    fill_in "Coffee shop name:", with: shop.name
     fill_in "Address", with: shop.address
     fill_in "Description", with: shop.description
     click_button "Add Shop"
 
     expect(page).to have_content('Shop added!')
     expect(page).to have_content(shop.name)
+  end
+
+  scenario "User submits invalid input" do
+    shop = FactoryGirl.create(:shop)
+    #user = FactoryGirl.create(:user)
+
+    visit root_path
+    # sign in!
+    click_link "Add a coffee shop"
+    click_button "Add Shop"
+
+    expect(page).to_not have_content('Shop added!')
+    expect(page).to have_content('Please correct the errors and try again')
 
   end
 
 
-
-  scenario "User must be logged in to add coffee shop"
+  # scenario "User must be logged in to add coffee shop"
 
 
 
