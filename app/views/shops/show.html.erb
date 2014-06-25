@@ -3,7 +3,6 @@
 <h2><%= @shop.address %></h2>
 <p><%= @shop.description %></p>
 
-
 <%= form_for [@shop, @review] do |f| %>
   <div>
     <%= f.label :rating %><br>
@@ -34,4 +33,7 @@
     </li>
   </ul>
 <% end %>
+
+
+<%= link_to "Back", :back %>
 
