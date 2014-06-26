@@ -1,10 +1,8 @@
 FactoryGirl.define do
   factory :shop do
-    name 'The Beanery'
-    address '123 Boston Street'
-    description 'This place is rad!'
-
-    association :user
+    sequence(:name) { |n| "The Beanery#{n}" }
+    address "123 Boston Street"
+    description "This place is rad!"
   end
 
   factory :user do
@@ -12,5 +10,10 @@ FactoryGirl.define do
     last_name 'Thrill'
     sequence(:email) { |n| "calebthethriller#{n}@gmail.com" }
     password '12345678'
+  end
+
+  factory :review do
+    rating 1
+    body "MyText"
   end
 end

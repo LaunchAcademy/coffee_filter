@@ -46,7 +46,6 @@ feature "User adds a coffee shop", %Q{
     click_link "Add a coffee shop"
     click_button "Add Shop"
 
-    expect(page).to_not have_content('Shop added!')
     expect(page).to have_content('Please correct the errors and try again')
   end
 
