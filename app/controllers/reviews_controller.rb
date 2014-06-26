@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
 
   def create
     @shop = Shop.find(params["shop_id"])
@@ -19,11 +18,13 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:id])
     @shop = @review.shop
+    authorize_to_edit
   end
 
   def update
     @review = Review.find(params[:id])
     @shop = @review.shop
+    authorize_to_edit
 
     if @review.update(review_params)
       flash[:notice] = "Review updated!"
@@ -38,5 +39,12 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :body).merge(user: current_user)
+  end
+
+  def authorize_to_edit
+    if @review.user != current_user
+      flash[:notice] = "You dont have permission to edit that review!"
+      redirect_to shops_path
+    end
   end
 end
