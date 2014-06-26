@@ -18,11 +18,7 @@ feature "User adds a coffee shop", %Q{
     shop = FactoryGirl.build(:shop)
     user = FactoryGirl.create(:user)
 
-    visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign in'
+    log_in(user)
 
     click_link 'Add a coffee shop'
     fill_in 'Coffee shop name:', with: shop.name

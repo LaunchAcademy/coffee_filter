@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "The Beanery#{n}" }
     address "123 Boston Street"
     description "This place is rad!"
+    user
   end
 
   factory :user do
