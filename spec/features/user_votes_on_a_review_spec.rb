@@ -6,8 +6,7 @@ feature 'User can upvote another users review.' do
     reviewer = FactoryGirl.create(:user)
     liker = FactoryGirl.create(:user)
     shop = FactoryGirl.create(:shop)
-    review = FactoryGirl.create(:review, shop_id: shop, user_id: reviewer)
-    binding.pry
+    review = FactoryGirl.create(:review, shop: shop, user: reviewer)
     visit root_path
     click_link 'Sign Up'
     fill_in 'First name', with: liker.first_name
