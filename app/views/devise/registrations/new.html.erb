@@ -7,10 +7,13 @@
   <%= f.text_field :first_name, autofocus: true %></div>
 
   <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name, autofocus: true %></div>
+  <%= f.text_field :last_name %></div>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :profile_photo %><br />
+  <%= f.file_field :profile_photo %></div>
 
   <div><%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
