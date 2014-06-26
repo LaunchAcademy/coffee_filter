@@ -15,8 +15,6 @@ feature "User adds a profile photo" do
 
     expect(page).to have_content('Sign Out')
     expect(page).to have_content(user.profile_photo)
-
-
   end
 
   scenario "Existing user with profile photo updates their profile photo" do
@@ -28,6 +26,7 @@ feature "User adds a profile photo" do
     click_button 'Update'
 
     expect(page).to have_content('You updated your account successfully.')
+    expect(page).to have_content(user.profile_photo)
   end
 
   scenario "Existing user without profile photo uploads a profile photo" do
@@ -48,6 +47,7 @@ feature "User adds a profile photo" do
     click_button 'Update'
 
     expect(page).to have_content('You updated your account successfully.')
+    expect(page).to have_content(user.profile_photo)
   end
 
 end
