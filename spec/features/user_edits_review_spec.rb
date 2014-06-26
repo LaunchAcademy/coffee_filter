@@ -22,5 +22,19 @@ feature "User edits a review they created" do
     expect(page).to have_content("Review updated!")
     expect(page).to have_content("This is one of the best!")
   end
+
+  scenario "User cant see the edit button if they did not create the review" do
+    shop = FactoryGirl.create(:shop)
+    review = FactoryGirl.create(:review, shop_id: shop.id)
+    user = FactoryGirl.create(:user)
+
+    log_in(user)
+
+    click_on shop.name
+
+    within '.reviews' do
+      expect(page).to_not have_content('Edit')
+    end
+  end
 end
 
