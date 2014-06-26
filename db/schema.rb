@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140625181907) do
     t.text     "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",     null: false
   end
 
   add_index "shops", ["name", "address"], name: "index_shops_on_name_and_address", using: :btree
