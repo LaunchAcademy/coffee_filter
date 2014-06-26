@@ -1,8 +1,8 @@
 feature "User edits a coffee shop" do
 
   scenario "User can can edit a shop that they created" do
-    # user = FactoryGirl.create(:user)
     shop = FactoryGirl.create(:shop)
+    user = shop.user
 
     visit root_path
     click_link 'Sign In'
@@ -16,6 +16,8 @@ feature "User edits a coffee shop" do
     click_button 'Update shop'
 
     expect(page).to have_content('Dunkbux')
+    expect(page).to have_content('Shop updated!')
     expect(page).to have_link('Edit')
+    expect(page).to_not have_content('Please correct the errors and try again')
   end
 end
