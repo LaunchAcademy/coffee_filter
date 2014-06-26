@@ -1,0 +1,12 @@
+<%= form_for [@shop, @review] do |f| %>
+  <div>
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div><%= f.submit "Update Review" %></div>
+<% end %>
+
