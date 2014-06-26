@@ -3,6 +3,7 @@
 <ul>
 <% @shops.each do |shop| %>
   <li><%= link_to shop.name, shop_path(shop) %></li>
+  <li><%= shop.address %></li>
 <% end %>
 </ul>
 <br />

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :shops, only: [ :index, :new, :create, :show, :edit, :update] do
+  resources :shops, only: [ :index, :new, :create, :show, :edit, :update, :destroy] do
     resources :reviews, only: [ :new, :create, :index]
   end
   # The priority is based upon order of creation: first created -> highest priority.

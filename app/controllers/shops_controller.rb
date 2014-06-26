@@ -43,7 +43,12 @@ class ShopsController < ApplicationController
     end
   end
 
-
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    flash[:notice] = "Coffee shop deleted!"
+    redirect_to shops_path
+  end
 
   private
 
