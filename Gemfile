@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'fog', "~> 1.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -35,6 +36,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
 
 # Use ActiveModel has_secure_password
