@@ -29,7 +29,15 @@
 <% @reviews.each do |review| %>
   <ul>
     <li>
-      <p>RATING: <%= review.rating %> - <%= review.body %> <%= button_to "Like", review_likes_path(review) %></p>
+      <p>RATING: <%= review.rating %> - <%= review.body %></p>
+
+      <% if !current_user.has_voted_on?(review) %>
+        <p><%= button_to "Like", review_likes_path(review) %>
+        Likes: <%= review.likes_count %></p>
+      <% else %>
+        <p><%= button_to "Unlike", like_path(current_user.vote_for(review)), method: :delete %>
+           Likes: <%= review.likes_count %></p>
+      <% end %>
     </li>
   </ul>
 <% end %>
@@ -40,3 +48,5 @@
 <%= link_to "Delete", shop_path(@shop), method: :delete %>
 
 <%= link_to 'Edit', edit_shop_path(@shop) %>
+
+

@@ -9,7 +9,6 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @review = Review.new
     @reviews = @shop.reviews
-
   end
 
   def new
