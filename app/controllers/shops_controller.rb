@@ -55,4 +55,10 @@ class ShopsController < ApplicationController
   def user_params
     params.require(:shop).permit(:name, :address, :description).merge(user: current_user)
   end
+
+  def authenticate_admin
+    unless signed_in? && current_user.is_admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
 end
