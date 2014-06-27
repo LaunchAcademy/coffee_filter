@@ -26,7 +26,18 @@ feature 'user visits shop page and add review' do
   end
 
   scenario 'user does not provide correct information' do
+
+    user = FactoryGirl.create(:user)
     shop = FactoryGirl.create(:shop)
+    review = FactoryGirl.build(:review, shop: shop, user: user)
+
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+
+    click_button "Sign in"
+
     visit shop_path(shop)
 
     click_button "Add Review"
