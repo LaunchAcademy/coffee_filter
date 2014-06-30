@@ -13,10 +13,6 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
 
   def is_admin?
-    if role == 'admin'
-      true
-    else
-      raise ActionController::RoutingError.new('Not Found')
-    end
+    role == 'admin'
   end
 end
