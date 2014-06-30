@@ -10,7 +10,7 @@ feature "User edits a review they created" do
     log_in(user)
 
     click_on shop.name
-    save_and_open_page
+
     within '.reviews' do
       click_link 'Edit'
     end
