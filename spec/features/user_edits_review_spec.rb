@@ -6,12 +6,15 @@ feature "User edits a review they created" do
     shop = FactoryGirl.create(:shop)
     review = FactoryGirl.create(:review, shop_id: shop.id)
     user = review.user
+
     log_in(user)
 
     click_on shop.name
+    save_and_open_page
     within '.reviews' do
       click_link 'Edit'
     end
+
 
     fill_in "Rating", with: 4
     fill_in "Body", with: "This is one of the best!"

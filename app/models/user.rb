@@ -7,8 +7,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :shops
+#<<<<<<< HEAD
+  has_many :likes
+#=======
   has_many :reviews
+#>>>>>>> master
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  def has_voted_on?(review)
+    vote = Like.where(review: review, user: self).first
+  end
+
+  # def vote_for(review)
+  #   vote = Like.where(review: review, user: self).first
+  # end
 end
