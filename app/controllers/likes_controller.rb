@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def create
-    review = Review.find(params["review_id"])
+    review = Review.find(params[:review_id])
     @shop = Shop.find(review.shop_id)
 
     @like = Like.new(like_params)
@@ -9,7 +9,7 @@ class LikesController < ApplicationController
       redirect_to shop_path(@shop)
     else
       flash[:notice] = " That didnt work!"
-      render :new
+      redirect_to shop_path(@shop)
     end
   end
 
@@ -19,6 +19,9 @@ class LikesController < ApplicationController
     if @like.destroy
       flash[:notice] = "You just unliked that review!"
       redirect_to shop_path(@shop)
+    else
+      flash[:notice] = "Im sorry, that did not work!"
+      redirect_to shop_path(@shop)
     end
   end
 
@@ -26,10 +29,5 @@ class LikesController < ApplicationController
 
   def like_params
     { review_id: params[:review_id], user: current_user}
-    # params.require(:like).permit(:review_id).merge(user: current_user)
   end
 end
-
-
-# SELECT  "likes".* FROM "likes"  WHERE "likes"."review_id" = 2 AND "likes"."user_id" = 1  ORDER BY "likes"."id" ASC LIMIT 1
-# SELECT  "likes".* FROM "likes"  WHERE "likes"."id" = $1 LIMIT 1  [["id", 1]]

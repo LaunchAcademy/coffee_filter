@@ -35,7 +35,7 @@
         <p><%= button_to "Like", review_likes_path(review) %>
         Likes: <%= review.likes_count %></p>
       <% else %>
-        <p><%= button_to "Unlike", like_path(current_user.vote_for(review)), method: :delete %>
+        <p><%= button_to "Unlike", like_path(current_user.has_voted_on?(review)), method: :delete %>
            Likes: <%= review.likes_count %></p>
       <% end %>
     </li>

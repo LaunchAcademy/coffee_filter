@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     vote = Like.where(review: review, user: self).first
   end
 
-  def vote_for(review)
-    vote = Like.where(review: review, user: self).first
-  end
+  # def vote_for(review)
+  #   vote = Like.where(review: review, user: self).first
+  # end
 end
