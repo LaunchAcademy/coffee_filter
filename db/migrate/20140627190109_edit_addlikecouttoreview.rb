@@ -1,10 +1,9 @@
 class EditAddlikecouttoreview < ActiveRecord::Migration
   def up
-    remove_column :reviews, :likes_count
-    add_column :reviews, :likes_count, :integer, default: 0
+    change_column_default :reviews, :likes_count, 0
   end
 
   def down
-    remove_column :reviews, :likes_count
+    change_column_default :reviews, :likes_count, nil
   end
 end
