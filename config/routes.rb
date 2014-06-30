@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :shops, only: [ :index, :new, :create, :show, :edit, :update, :destroy] do
     resources :reviews, only: [ :new, :create, :index, :update, :edit], shallow: true do
-      resources :likes, only: [ :create, :destroy]
+      resources :likes, only: [ :create, :destroy ]
     end
   end
 
