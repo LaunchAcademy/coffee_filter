@@ -3,3 +3,21 @@ body {
   padding-bottom: 50px;
 }
 
+.title {
+  font-size: 1.5em;
+}
+
+.jumbotron {
+  margin-top: auto;
+  background-image: url('coffee.JPG');
+  padding-top: 300px;
+  padding-bottom: 300px;
+  vertical-align: top;
+  background-size: 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'shops#index'
+  root "pages#home"
 
   devise_for :users
   resources :shops, only: [ :index, :new, :create, :show, :edit, :update, :destroy] do
