@@ -27,9 +27,13 @@
 <h2> Reviews </h2>
 
 <% @reviews.each do |review| %>
-  <ul>
+  <ul class ="reviews">
     <li>
-      <p>RATING: <%= review.rating %> - <%= review.body %></p>
+      <p>RATING: <%= review.rating %> - <%= review.body %>
+
+        <% if review.user == current_user %>
+        <%= link_to "Edit", edit_shop_review_path(@shop, review) %></p>
+        <% end %>
     </li>
   </ul>
 <% end %>
