@@ -19,6 +19,9 @@
     <li><%= link_to 'Sign In', user_session_path %></li>
     <li> <%= link_to "Sign Up", new_user_registration_path %></li>
   <% end %>
+  <% if signed_in? %>
+    <%= image_tag current_user.profile_photo, class: "profile-pic" %>
+  <% end %>
 </ul>
 
 <%= yield %>
