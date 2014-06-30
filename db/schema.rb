@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140627190109) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140627190109) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

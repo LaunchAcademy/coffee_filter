@@ -27,7 +27,7 @@
 <h2> Reviews </h2>
 
 <% @reviews.each do |review| %>
-  <ul>
+  <ul class ="reviews">
     <li>
       <p>RATING: <%= review.rating %> - <%= review.body %></p>
 
@@ -38,6 +38,11 @@
         <p><%= button_to "Unlike", like_path(current_user.has_voted_on?(review)), method: :delete %>
            Likes: <%= review.likes_count %></p>
       <% end %>
+
+        <% if review.user == current_user %>
+        <%= link_to "Edit", edit_review_path(review) %></p>
+        <% end %>
+
     </li>
   </ul>
 <% end %>
