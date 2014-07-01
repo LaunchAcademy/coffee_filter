@@ -10,7 +10,7 @@ body {
 }
 
 .jumbotron {
-  margin-top: -50px;
+  margin-top: -30px;
   background-image: url('coffee.JPG');
   padding-top: 300px;
   padding-bottom: 300px;
@@ -22,4 +22,8 @@ body {
 
 .center {
   text-align: center;
+}
+
+.search {
+  margin-top: 10px;
 }
