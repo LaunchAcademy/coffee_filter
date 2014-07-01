@@ -37,11 +37,13 @@ feature 'user visits shop page and add review' do
     fill_in "Password", with: user.password
 
     click_button "Sign in"
-
     visit shop_path(shop)
-
     click_button "Add Review"
 
     expect(page).to have_content('review did not go through!')
   end
+
+    scenario 'shop creator is sent an email when a review of that shop is submitted' do
+
+    end
 end
