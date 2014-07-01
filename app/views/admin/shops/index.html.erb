@@ -1,9 +1,0 @@
-<ul>
-  <% @shops.each do |shop| %>
-    <li>
-      <%= link_to shop.name, admin_shop_path(shop) %> <%= link_to 'Edit', edit_shop_path(shop) %> - <%= link_to 'Delete', shop, method: :delete %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "Add a coffee shop", new_shop_path %>
