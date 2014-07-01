@@ -47,8 +47,8 @@ feature 'user visits shop page and add review' do
     shop = FactoryGirl.create(:shop)
     review = FactoryGirl.build(:review, shop: shop, user: user)
 
-    prev_count = UserReviewConfirmation.count
     ActionMailer::Base.deliveries = []
+    prev_count = UserReviewConfirmation.deliveries.count
 
     log_in(user)
     click_on shop.name
@@ -56,12 +56,13 @@ feature 'user visits shop page and add review' do
     fill_in "Body", with: review.body
     click_button "Add Review"
 
+
     expect(page).to have_content('Review has been added')
-    expect(UserReviewConfirmation.count).to eq(prev_count + 1)
+    expect(UserReviewConfirmation.deliveries.count).to eq(prev_count + 1)
     expect(ActionMailer::Base.deliveries.size).to eq(1)
 
     last_email = ActionMailer::Base.deliveries.last
-    expect(last_email).to have_subject("#{user.first_name} has reviewed the coffee shop you added!")
+    expect(last_email).to have_subject("Caleb has reviewed the coffee shop you added!")
     expect(last_email).to deliver_to(user.email)
   end
 end

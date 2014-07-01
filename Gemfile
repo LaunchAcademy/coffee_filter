@@ -38,6 +38,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'dotenv-rails'
   gem 'launchy'
+  gem 'email_spec'
 end
 
 # Use ActiveModel has_secure_password
