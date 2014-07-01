@@ -24,6 +24,12 @@
   <% end %>
 </ul>
 
+<div class="search">
+  <%= form_tag("/search", method: "get") do |f| %>
+    <%= f.label %>
+  <% end %>
+</div>
+
 <%= yield %>
 
 </body>

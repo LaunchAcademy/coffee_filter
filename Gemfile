@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'simple_form'
+
 group :test, :development do
   gem 'capybara'
   gem 'pry-rails'
