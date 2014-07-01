@@ -7,12 +7,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :shops
+  has_many :likes
   has_many :reviews
+
 
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+
   def is_admin?
     role == 'admin'
+  end
+
+  def has_voted_on?(review)
+    vote = Like.where(review: review, user: self).first
   end
 end
