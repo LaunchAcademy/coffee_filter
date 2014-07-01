@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
 
   def authorize_to_edit
     @review = current_user.reviews.find_by(id: params[:id])
-    if @review.nil?
+    if @review.nil? && !current_user.is_admin?
       flash[:notice] = "You dont have permission to edit that review!"
       redirect_to shops_path
     end

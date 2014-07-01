@@ -11,6 +11,7 @@ FactoryGirl.define do
     last_name 'Thrill'
     sequence(:email) { |n| "calebthethriller#{n}@gmail.com" }
     password '12345678'
+    role 'member'
   end
 
   factory :review do
