@@ -2,7 +2,12 @@
 
 <ul>
 <% @shops.each do |shop| %>
-  <li><%= link_to shop.name, shop_path(shop) %></li>
+  <li>
+    <% if signed_in? && current_user.is_admin? %>
+      <%= link_to 'Delete', shop_path(shop), method: :delete %>
+      <%= link_to 'Edit', edit_shop_path(shop) %>
+    <% end %>
+    <%= link_to shop.name, shop_path(shop) %></li>
   <li><%= shop.address %></li>
 <% end %>
 </ul>
