@@ -10,7 +10,6 @@ feature 'user visits shop page and add review' do
     click_link "Sign In"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-
     click_button "Sign in"
 
     click_link shop.name
@@ -43,7 +42,26 @@ feature 'user visits shop page and add review' do
     expect(page).to have_content('review did not go through!')
   end
 
-    scenario 'shop creator is sent an email when a review of that shop is submitted' do
+  scenario 'shop creator is sent an email when a review of that shop is submitted' do
+    user = FactoryGirl.create(:user)
+    shop = FactoryGirl.create(:shop)
+    review = FactoryGirl.build(:review, shop: shop, user: user)
 
-    end
+    prev_count = UserReviewConfirmation.count
+    ActionMailer::Base.deliveries = []
+
+    log_in(user)
+    click_on shop.name
+    fill_in "Rating", with: review.rating
+    fill_in "Body", with: review.body
+    click_button "Add Review"
+
+    expect(page).to have_content('Review has been added')
+    expect(UserReviewConfirmation.count).to eq(prev_count + 1)
+    expect(ActionMailer::Base.deliveries.size).to eq(1)
+
+    last_email = ActionMailer::Base.deliveries.last
+    expect(last_email).to have_subject("#{user.first_name} has reviewed the coffee shop you added!")
+    expect(last_email).to deliver_to(user.email)
+  end
 end
