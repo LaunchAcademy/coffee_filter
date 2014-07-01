@@ -5,10 +5,12 @@ body {
 
 .title {
   font-size: 1.5em;
+  font-family: 'Pacifico', cursive;
+  /*font-family: 'Playball', cursive;*/
 }
 
 .jumbotron {
-  margin-top: auto;
+  margin-top: -50px;
   background-image: url('coffee.JPG');
   padding-top: 300px;
   padding-bottom: 300px;
