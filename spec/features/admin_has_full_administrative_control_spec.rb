@@ -43,6 +43,6 @@ feature 'administrator has full CRUD control' do
     expect(page).to have_link "Delete"
 
     click_on "Delete"
-    expect(Review.count)to eq(review_count - 1)
+    expect(Review.count).to eq(review_count - 1)
   end
 end

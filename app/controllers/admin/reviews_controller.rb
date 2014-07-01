@@ -3,5 +3,8 @@ class Admin::ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-
+  def destroy
+    @review = Review.find(params[:id]).destroy
+    redirect_to admin_reviews_path
+  end
 end
