@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @shops = Shop.order(created_at: :desc)
+    @shops = Shop.search(params[:search])
   end
 
   def show
