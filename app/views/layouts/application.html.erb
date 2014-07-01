@@ -13,6 +13,11 @@
 
 
 <ul>
+  <%= form_tag(shops_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search shops" %>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
+
   <% if user_signed_in? %>
     <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
   <% else %>
