@@ -125,7 +125,7 @@ footer {
   color: white;
   border: none;
   margin-bottom: 15px;
-  height: 40px;
+  height: 35px;
   width: 100%;
   padding-left: 10px;
   font-weight: 100;
@@ -140,7 +140,7 @@ footer {
 .contact-submit {
   width: 25%;
   margin-left: 75%;
-  height: 35px;
+  height: 30px;
 }
 
 .prof-pic {
