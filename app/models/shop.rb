@@ -4,8 +4,9 @@ class Shop < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true
-  validates :address, presence: true, uniqueness: { scope: :name,
-    message: "This shop already exists" }
+  validates :address, presence: true, uniqueness: {
+    scope: :name, message: "This shop already exists"
+  }
   validates :description, presence: true
   validates :user, presence: true
 

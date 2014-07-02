@@ -1,15 +1,18 @@
 <h1>Shops</h1>
 
 <ul>
-<% @shops.each do |shop| %>
-  <li>
-    <% if signed_in? && current_user.is_admin? %>
-      <%= link_to 'Delete', shop_path(shop), method: :delete %>
-      <%= link_to 'Edit', edit_shop_path(shop) %>
-    <% end %>
-    <%= link_to shop.name, shop_path(shop) %></li>
-  <li><%= shop.address %></li>
-<% end %>
+  <% @shops.each do |shop| %>
+    <li>
+      <% if signed_in? && current_user.is_admin? %>
+        <%= link_to 'Delete', shop_path(shop), method: :delete %>
+        <%= link_to 'Edit', edit_shop_path(shop) %>
+      <% end %>
+      <%= link_to shop.name, shop_path(shop) %>
+    </li>
+    <li>
+      <%= shop.address %>
+    </li>
+  <% end %>
 </ul>
 <br />
 <%= link_to 'Add a coffee shop', new_shop_path %>

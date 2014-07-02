@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CoffeeFilter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>CoffeeFilter</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
+    <ul>
+      <%= form_tag(shops_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search shops" %>
+        <%= submit_tag "Search", name: nil %>
+      <% end %>
 
-<ul>
-  <%= form_tag(shops_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search shops" %>
-    <%= submit_tag "Search", name: nil %>
-  <% end %>
+      <% if user_signed_in? %>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Sign In', user_session_path %></li>
+        <li> <%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
+      <% if signed_in? %>
+        <%= image_tag current_user.profile_photo, class: "profile-pic" %>
+      <% end %>
+    </ul>
 
-  <% if user_signed_in? %>
-    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to 'Sign In', user_session_path %></li>
-    <li> <%= link_to "Sign Up", new_user_registration_path %></li>
-  <% end %>
-  <% if signed_in? %>
-    <%= image_tag current_user.profile_photo, class: "profile-pic" %>
-  <% end %>
-</ul>
+    <%= yield %>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
