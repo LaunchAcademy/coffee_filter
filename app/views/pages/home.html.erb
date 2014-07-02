@@ -1,10 +1,39 @@
-
 <%= content_for :jumbotron do %>
   <div class="jumbotron">
     <div class="coffee-img">
       <div class="container center">
-      <p>The Coffee Filter</p>
+      <div>
+        <h1><span class="jumbo-title">Welcome to The Filter</span></h1>
+      </div>
+      <% if !signed_in? %>
+        <div>
+          <%= form_tag(shops_path, method: :get) do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Search shops", class: "big-search" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="center">
+      <h3><span class="page-title brown">About</span></h3>
+      <div class="col-md-10 col-md-offset-1">
+        <p class="home-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur ore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="container">
+        <div class="col-md-12">
+          <h1 class="footer-text">CONTACT US</h1>
+        </div>
+      </div>
+    </div>
+  </footer>
 <% end %>

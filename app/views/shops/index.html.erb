@@ -1,10 +1,17 @@
-<h1>Shops</h1>
+<body class="shops">
 
-<ul>
-<% @shops.each do |shop| %>
-  <li><%= link_to shop.name, shop_path(shop) %></li>
-  <li><%= shop.address %></li>
-<% end %>
-</ul>
-<br />
-<%= link_to 'Add a coffee shop', new_shop_path %>
+  <div class="col-md-12 center">
+    <h1><span class="white page-title">Shops</span></h1>
+  </div>
+
+  <div class="col-md-10">
+    <ul>
+    <% @shops.each do |shop| %>
+      <li><%= link_to shop.name, shop_path(shop), class: "shop-listing" %></li>
+    <% end %>
+    </ul>
+    <br />
+    <%= link_to 'Add a coffee shop', new_shop_path %>
+  </div>
+
+</body>
