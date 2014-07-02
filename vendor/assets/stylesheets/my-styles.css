@@ -152,3 +152,9 @@ footer {
 .line-break {
   color: grey;
 }
+
+/*********************** shops#index **************************/
+.shop-info {
+  color: white;
+  font-weight: 100;
+}

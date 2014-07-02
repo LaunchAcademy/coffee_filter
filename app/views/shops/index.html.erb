@@ -4,14 +4,14 @@
     <h1><span class="white page-title">Shops</span></h1>
   </div>
 
-  <div class="col-md-10">
-    <ul>
+  <div class="shop-info">
     <% @shops.each do |shop| %>
-      <li><%= link_to shop.name, shop_path(shop), class: "shop-listing" %></li>
-    <% end %>
-    </ul>
-    <br />
-    <%= link_to 'Add a coffee shop', new_shop_path %>
+      <div class="">
+        <h1><%= link_to shop.name, shop_path(shop), class: "shop-listing" %></h1>
+        <p><%= shop.description %></p>
+      </div>
+    <% end %><br/>
+      <%= link_to 'Add a coffee shop', new_shop_path %>
   </div>
 
 </body>
