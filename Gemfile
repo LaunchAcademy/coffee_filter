@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'kaminari'
+
 group :test, :development do
   gem 'capybara'
   gem 'pry-rails'

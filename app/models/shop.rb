@@ -1,4 +1,5 @@
 class Shop < ActiveRecord::Base
+  paginates_per 5
   has_many :reviews
   belongs_to :user
 

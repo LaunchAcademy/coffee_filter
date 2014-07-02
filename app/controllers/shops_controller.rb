@@ -2,13 +2,13 @@ class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @shops = Shop.search(params[:search])
+    @shops = Shop.search(params[:search]).page params[:page]
   end
 
   def show
     @shop = Shop.find(params[:id])
     @review = Review.new
-    @reviews = @shop.reviews
+    @reviews = @shop.reviews.page params[:page]
   end
 
   def new
