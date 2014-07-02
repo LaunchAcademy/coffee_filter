@@ -28,6 +28,6 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    {review_id: params[:review_id], user: current_user}
+    { review_id: params[:review_id], user: current_user }
   end
 end

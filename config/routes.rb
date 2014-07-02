@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'shops#index'
 
   namespace :admin do
-   resources :reviews, only: [:index, :destroy]
+    resources :reviews, only: [:index, :destroy]
   end
 
   devise_for :users
