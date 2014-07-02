@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = User.create(first_name: "Caleb", last_name: "thill", email: "calebnthill@gmail.com", password: "testblahhh")
 
-Shop.create({name: 'Wierd puppy', address: '250 Newbury St, Boston, MA 02116',
+Shop.create({name: 'Wired Puppy', address: '250 Newbury St, Boston, MA 02116',
            description: 'Great fun hangout place for an early morning study session!', user: user})
 
 Shop.create({name: 'Thinking Cup', address: '165 Tremont St, Boston, MA 02111',
@@ -41,15 +41,14 @@ Shop.create({name: '1369 Coffeehouse', address: '757 Massachusetts Ave, Cambridg
            description: 'Top-notch coffee & sandwiches draw local creative types to this coffeeshop featuring a gallery!!', user: user})
 
 Shop.create({name: 'Crema Cafe', address: '27 Brattle St, Cambridge, MA 02138',
-           description: 'Super cool coffee shop in the heart of Harvard square! NO WIFI!', user: user})
+           description: 'Super cool coffee shop in the heart of Harvard square! No Wifi, so bring a book.', user: user})
 
-
-
-
-
-
-
-
-
-
-
+Review.create(
+  [
+    {rating: 4, body: 'This is one of my all-time favorites', shop_id: 1, user_id: 1},
+    {rating: 3, body: 'The atmosphere can be a bit hectic, but the upstairs seating is
+      great if you can find a seat. Sandwiches are amazing, but sadly, the only coffee
+      they have is a medium roast. Dark roast drinkers should go elsewhere.', shop_id: 12, user_id: 1},
+    {rating: 5, body: 'Possibly the best ice coffee in Boston. Also, the chicken salad sandwich is one of my absolute favorites.', shop_id: 4, user_id: 1}
+  ]
+)
