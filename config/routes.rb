@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'shops#index'
 
-    namespace :admin do
-     resources :reviews, only: [:index, :destroy]
-    end
+  namespace :admin do
+    resources :reviews, only: [:index, :destroy]
+  end
 
   devise_for :users
   resources :shops, only: [ :index, :new, :create, :show, :edit, :update, :destroy] do
