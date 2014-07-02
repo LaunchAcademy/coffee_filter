@@ -112,3 +112,30 @@ footer {
 .address {
   line-height: 50%;
 }
+
+.trans {
+  background-color: rgba(168,168,168,0.2);
+  color: white;
+  border: none;
+  margin-bottom: 15px;
+  height: 35px;
+  width: 60%;
+  padding-left: 10px;
+  font-weight: 100;
+}
+
+.area {
+  height: 100px;
+  resize: none;
+}
+
+.contact-submit {
+  width: 25%;
+  margin-left: 35%;
+}
+
+.prof-pic {
+  height: 50px;
+  border-radius: 150px;
+  margin-right: 10px;
+}

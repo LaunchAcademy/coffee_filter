@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "pages#home"
 
+  resources :contacts, only: [:index, :new, :create]
+
   devise_for :users
   resources :shops, only: [ :index, :new, :create, :show, :edit, :update, :destroy] do
     resources :reviews, only: [ :new, :create, :index, :update, :edit], shallow: true do
