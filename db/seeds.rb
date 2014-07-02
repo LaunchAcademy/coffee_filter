@@ -6,13 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# create_table "shops", force: true do |t|
-#     t.string   "name",        null: false
-#     t.string   "address",     null: false
-#     t.text     "description", null: false
-#   end
-# end
-
 Shop.create(name: 'Wierd puppy', address: '250 Newbury St, Boston, MA 02116',
            description: 'Great fun hangout place for an early morning study session!')
 
@@ -47,7 +40,7 @@ Shop.create(name: '1369 Coffeehouse', address: '757 Massachusetts Ave, Cambridge
            description: 'Top-notch coffee & sandwiches draw local creative types to this coffeeshop featuring a gallery!!')
 
 Shop.create(name: 'Crema Cafe', address: '27 Brattle St, Cambridge, MA 02138',
-           description: 'Super cool coffee shop in the heart of Harvard square! NO WIFI!)
+           description: 'Super cool coffee shop in the heart of Harvard square! NO WIFI!')
 
 
 
