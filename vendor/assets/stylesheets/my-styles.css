@@ -28,7 +28,6 @@ body {
 /*********************** Text Editing **************************/
 .white {
   color: white;
-  font-size: 100;
 }
 
 .black {
@@ -76,6 +75,10 @@ ul, li{
   font-size: 3.5em;
 }
 
+.thin {
+  font-weight: 100;
+}
+
 /*********************** Home Page **************************/
 .big-search {
 width: 25%;
@@ -107,6 +110,7 @@ footer {
 .footer-content {
   padding-top: 50px;
   padding-bottom: 50px;
+  padding-left: 10%;
 }
 
 .address {
