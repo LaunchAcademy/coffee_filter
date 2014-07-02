@@ -15,4 +15,8 @@ class Shop < ActiveRecord::Base
       Shop.all
     end
   end
+
+  def self.highest_rated(count=3)
+    joins(:reviews).group('shops.id').order('sum(reviews.rating) desc').limit(count)
+  end
 end
