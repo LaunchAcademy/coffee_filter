@@ -20,13 +20,11 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:id])
     @shop = @review.shop
-    # authorize_to_edit
   end
 
   def update
     @review = Review.find(params[:id])
     @shop = @review.shop
-    # authorize_to_edit
 
     if @review.update(review_params)
       flash[:notice] = "Review updated!"

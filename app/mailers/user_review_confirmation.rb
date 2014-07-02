@@ -7,5 +7,4 @@ class UserReviewConfirmation < ActionMailer::Base
 
     mail(to: @user.email, subject: "#{user.first_name} has reviewed the coffee shop you added!")
   end
-
 end
