@@ -81,11 +81,14 @@ ul, li{
 
 /*********************** Home Page **************************/
 .big-search {
-width: 25%;
-height: 50px;
-font-size: 1.15em;
-text-align: center;
-font-weight: 100;
+  margin-top: 40px;
+  width: 25%;
+  height: 50px;
+  font-size: 1.15em;
+  text-align: center;
+  font-weight: 100;
+  background-color: rgba(255,255,255,0.35);
+  border: none;
 }
 
 .jumbotron {
@@ -110,7 +113,7 @@ footer {
 .footer-content {
   padding-top: 50px;
   padding-bottom: 50px;
-  padding-left: 10%;
+  /*padding-left: 10%;*/
 }
 
 .address {
@@ -122,24 +125,30 @@ footer {
   color: white;
   border: none;
   margin-bottom: 15px;
-  height: 35px;
-  width: 60%;
+  height: 40px;
+  width: 100%;
   padding-left: 10px;
   font-weight: 100;
 }
 
 .area {
   height: 100px;
+  width: 100%;
   resize: none;
 }
 
 .contact-submit {
   width: 25%;
-  margin-left: 35%;
+  margin-left: 75%;
+  height: 35px;
 }
 
 .prof-pic {
   height: 50px;
   border-radius: 150px;
   margin-right: 10px;
+}
+
+.line-break {
+  color: grey;
 }
