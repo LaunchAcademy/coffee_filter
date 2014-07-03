@@ -1,0 +1,160 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 50px;
+}
+
+/*********************** Nav **************************/
+.brand-title {
+  font-size: 1.5em;
+  font-family: 'Pacifico', cursive;
+  /*font-family: 'Playball', cursive;*/
+}
+
+.search {
+  margin-top: 10px;
+}
+
+
+.shops {
+   background-image: url('shop.png');
+}
+
+.shop-listing {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+/*********************** Text Editing **************************/
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.brown {
+  color: #894c18;
+}
+
+ul, li{
+  list-style:none;
+  list-style-type:none;
+}
+
+.page-title {
+  font-weight: 100;
+  font-size: 3em;
+}
+
+.jumbo-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 1.5em;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+.home-text {
+  font-size: 1.3em;
+  font-weight: 100;
+  line-height: 145%;
+  text-align: justify;
+}
+
+.footer-text {
+  color: white;
+  font-weight: 100;
+}
+
+.large {
+  font-size: 3.5em;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+/*********************** Home Page **************************/
+.big-search {
+  margin-top: 40px;
+  width: 25%;
+  height: 50px;
+  font-size: 1.15em;
+  text-align: center;
+  font-weight: 100;
+  background-color: rgba(255,255,255,0.35);
+  border: none;
+}
+
+.jumbotron {
+  margin-top: -30px;
+  background-image: url('coffee.JPG');
+  padding-top: 200px;
+  padding-bottom: 250px;
+  vertical-align: top;
+  background-size: 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+footer {
+  margin-top: 100px;
+  margin-bottom: -50px;
+  bottom:0;
+  height:100%;   /* Height of the footer */
+  background: #222222;
+}
+
+.footer-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /*padding-left: 10%;*/
+}
+
+.address {
+  line-height: 50%;
+}
+
+.trans {
+  background-color: rgba(168,168,168,0.2);
+  color: white;
+  border: none;
+  margin-bottom: 15px;
+  height: 35px;
+  width: 100%;
+  padding-left: 10px;
+  font-weight: 100;
+}
+
+.area {
+  height: 100px;
+  width: 100%;
+  resize: none;
+}
+
+.contact-submit {
+  width: 25%;
+  margin-left: 75%;
+  height: 30px;
+}
+
+.prof-pic {
+  height: 50px;
+  border-radius: 150px;
+  margin-right: 10px;
+}
+
+.line-break {
+  color: grey;
+}
+
+/*********************** shops#index **************************/
+.shop-info {
+  color: white;
+  font-weight: 100;
+}

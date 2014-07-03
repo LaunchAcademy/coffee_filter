@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'shops#index'
+  root "pages#home"
+
+  resources :contacts, only: [:index, :new, :create]
 
   namespace :admin do
     resources :reviews, only: [:index, :destroy]
