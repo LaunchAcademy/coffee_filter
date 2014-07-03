@@ -1,0 +1,6 @@
+<h1>All Reviews</h1>
+
+<% @reviews.each do |review| %>
+  <%= link_to "Delete", admin_review_path(review), method: :delete %>
+  <%= review.body %>
+<% end %>

@@ -5,10 +5,11 @@ class ReviewsController < ApplicationController
   def create
     @shop = Shop.find(params["shop_id"])
     @review = Review.new(review_params)
-
     @review.shop = @shop
+
     if @review.save
       flash[:notice] = "Review has been added"
+      UserReviewConfirmation.reviewer_confirmation(@review.user, @review).deliver
       redirect_to shop_path(@shop)
     else
       flash[:notice] = "review did not go through!"
@@ -19,13 +20,11 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:id])
     @shop = @review.shop
-    # authorize_to_edit
   end
 
   def update
     @review = Review.find(params[:id])
     @shop = @review.shop
-    # authorize_to_edit
 
     if @review.update(review_params)
       flash[:notice] = "Review updated!"
@@ -44,7 +43,7 @@ class ReviewsController < ApplicationController
 
   def authorize_to_edit
     @review = current_user.reviews.find_by(id: params[:id])
-    if @review.nil?
+    if @review.nil? && !current_user.is_admin?
       flash[:notice] = "You dont have permission to edit that review!"
       redirect_to shops_path
     end

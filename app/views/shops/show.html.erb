@@ -12,40 +12,48 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
-  <div><%= f.submit "Add Review" %></div>
+  <div>
+    <%= f.submit "Add Review" %>
+  </div>
 <% end %>
 
-
 <% if @review.errors.any? %>
-  <p> There were errors in your submission </p>
+  <p>
+    There were errors in your submission
+  </p>
   <ul>
     <% @review.errors.full_messages.each do |m| %>
       <li><%= m %></li>
     <% end %>
   </ul>
 <% end %>
+
 <h2> Reviews </h2>
 
 <% @reviews.each do |review| %>
   <ul class ="reviews">
     <li>
-      <p>RATING: <%= review.rating %> - <%= review.body %></p>
-
+      <p>
+        RATING: <%= review.rating %> - <%= review.body %>
+      </p>
       <% if !current_user.has_voted_on?(review) %>
-        <p><%= button_to "Like", review_likes_path(review) %>
-        Likes: <%= review.likes_count %></p>
+        <p>
+          <%= button_to "Like", review_likes_path(review) %>
+          Likes: <%= review.likes_count %>
+        </p>
       <% else %>
-        <p><%= button_to "Unlike", like_path(current_user.has_voted_on?(review)), method: :delete %>
-           Likes: <%= review.likes_count %></p>
+        <p>
+          <%= button_to "Unlike", like_path(current_user.has_voted_on?(review)), method: :delete %>
+          Likes: <%= review.likes_count %>
+        </p>
       <% end %>
 
-        <% if review.user == current_user %>
-        <%= link_to "Edit", edit_review_path(review) %></p>
-        <% end %>
+      <% if review.user == current_user %>
+        <%= link_to "Edit", edit_review_path(review) %>
+      <% end %>
     </li>
   </ul>
 <% end %>
-
 
 <%= link_to "Back", :back %>
 
@@ -53,4 +61,4 @@
 
 <%= link_to 'Edit', edit_shop_path(@shop) %>
 
-
+<%= paginate @reviews %>

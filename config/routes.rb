@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   resources :contacts, only: [:index, :new, :create]
 
+  namespace :admin do
+    resources :reviews, only: [:index, :destroy]
+  end
+
   devise_for :users
   resources :shops, only: [ :index, :new, :create, :show, :edit, :update, :destroy] do
     resources :reviews, only: [ :new, :create, :index, :update, :edit], shallow: true do
