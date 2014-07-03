@@ -32,7 +32,7 @@
                 <div class="form-group">
                   <%= text_field_tag :search, params[:search], placeholder: "Search shops", class: "form-control" %>
                 </div>
-                <!-- <%= submit_tag "Search", class: "form-group", name: nil %> -->
+                <%= submit_tag "Search", class: "form-group", name: nil %>
               <% end %>
             </li>
           <% end %>
@@ -41,10 +41,10 @@
         <% if user_signed_in? %>
           <%= image_tag current_user.profile_photo, class: "profile-pic" %>
           <strong><%= current_user.first_name %> |</strong>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, class: 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, class: 'navbar-link'  %>
+          <%= link_to "Sign Up", new_user_registration_path, class: 'navbar-link'  %> |
+          <%= link_to "Sign In", new_user_session_path, class: 'navbar-link'  %>
         <% end %>
       </div>
     </div>
