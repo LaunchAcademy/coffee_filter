@@ -1,5 +1,6 @@
 <body class="shops">
 
+
   <div class="col-md-12 center">
     <h1><span class="white page-title">Shops</span></h1>
   </div>
@@ -15,3 +16,23 @@
   </div>
 
 </body>
+
+<ul>
+  <% @shops.each do |shop| %>
+    <li>
+      <% if signed_in? && current_user.is_admin? %>
+        <%= link_to 'Delete', shop_path(shop), method: :delete %>
+        <%= link_to 'Edit', edit_shop_path(shop) %>
+      <% end %>
+      <%= link_to shop.name, shop_path(shop) %>
+    </li>
+    <li>
+      <%= shop.address %>
+    </li>
+  <% end %>
+</ul>
+<br />
+<%= link_to 'Add a coffee shop', new_shop_path %>
+
+<%= paginate @shops %>
+

@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'kaminari'
+
 group :test, :development do
   gem 'capybara'
   gem 'pry-rails'
@@ -38,6 +40,11 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'dotenv-rails'
   gem 'launchy'
+  gem 'email_spec'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
