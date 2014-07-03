@@ -1,0 +1,80 @@
+<%= content_for :jumbotron do %>
+  <div class="jumbotron">
+    <div class="coffee-img">
+      <div class="container center">
+      <div>
+        <h1><span class="jumbo-title">Boston's Coffee Filter</span></h1>
+      </div>
+      <% if !signed_in? %>
+        <div>
+          <%= form_tag(shops_path, method: :get) do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Search shops", class: "big-search" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="center">
+      <h3><span class="page-title brown">About</span></h3>
+      <div class="col-md-10 col-md-offset-1">
+        <p class="home-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur ore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="footer-text large">CONTACT US</h1>
+            <p class="footer-text">Would you like to leave us any feedback, or report a bug?</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 white thin">
+            <h3 class="footer-text">Our Office</h3><hr>
+            <p>(857) 699-2222</p>
+            <p>info@thefilter.com</p>
+            <div class="address">
+              <p>5th Floor</p>
+              <p>53 Harrison Avenue</p>
+              <p>Boston</p>
+              <p>02111</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h3 class="footer-text">Say Hello</h3><hr>
+            <%= form_for @contact do |f| %>
+              <div><%= f.text_field :name, placeholder: "Name", class: "trans" %></div>
+              <div><%= f.text_field :email, placeholder: "Email", class: "trans" %></div>
+              <div><%= f.text_area :message, placeholder: "Comment", class: "trans area" %></div>
+              <div><%= f.submit "Submit", class: "trans contact-submit" %></div>
+            <% end %>
+          </div>
+          <div class="col-md-4">
+            <h3 class="footer-text">Get Connected</h3><hr>
+            <div>
+              <p><img src="https://s3.amazonaws.com/Launchers/Alex-Morgan.jpg" class="prof-pic"><a href="https://github.com/AlexMorgan" class="white thin">Alex Morgan</a></p>
+            </div>
+            <div>
+              <p><img src="https://s3.amazonaws.com/Launchers/Caleb-Thill.jpg" class="prof-pic"><a href="https://github.com/calebthill" class="white thin">Caleb Thill</a></p>
+            </div>
+            <div>
+              <p><img src="https://s3.amazonaws.com/Launchers/David-Guerette.jpg" class="prof-pic"><a href="https://github.com/davidguerette" class="white thin">Davie Guerette</a></p>
+            </div>
+            <div>
+              <p><img src="https://s3.amazonaws.com/Launchers/Kurt-Henry.jpg" class="prof-pic"><a href="https://github.com/Lispless" class="white thin">Kurt Henry</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+<% end %>

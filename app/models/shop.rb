@@ -12,9 +12,13 @@ class Shop < ActiveRecord::Base
 
   def self.search(search)
     if search
-      Shop.where("name iLIKE '%#{search}%'")
+      where("name iLIKE '%#{search}%'")
     else
-      Shop.all
+      all
     end
+  end
+
+  def self.highest_rated(count=3)
+    joins(:reviews).group('shops.id').order('avg(reviews.rating) desc').limit(count)
   end
 end

@@ -12,9 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
+ *= require my-styles
  */
 
 .profile-pic {
-  height: 300px;
-  width: 300px;
+  height: 25px;
+  width: 25px;
+  border-radius: 150px;
 }
